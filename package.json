@@ -1,0 +1,29 @@
+{
+  "name": "validationserver",
+  "version": "1.0.0",
+  "description": "Validation Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Validation",
+    "Server",
+    "Spider"
+  ],
+  "author": "A.R.T.",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dns-prefetch-control": "^0.1.0",
+    "fastify": "^0.30.2",
+    "frameguard": "^3.0.0",
+    "hide-powered-by": "^1.0.0",
+    "lokijs": "^1.5.1",
+    "mongoose": "^4.10.8",
+    "node-mailjet": "^3.2.1",
+    "path": "^0.12.7",
+    "request": "^2.87.0",
+    "x-xss-protection": "^1.0.0"
+  }
+}
