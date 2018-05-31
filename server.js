@@ -39,7 +39,7 @@ mongoose.connection.on('disconnected', () => {
 })
 
 
-fastify.listen(19790, err => {
+fastify.listen(7777, err => {
     if (err) throw err
     console.log(`validation server listening on ${fastify.server.address().port}`)
 })
