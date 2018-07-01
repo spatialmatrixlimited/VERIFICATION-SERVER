@@ -6,6 +6,9 @@ module.exports = (fastify, options, next) => {
   fastify.get('/validate/:type/:email', validate.validateUser)
 
   fastify.get('/validated', validate.getValidateUser)
+
+  fastify.get('/test', validate.test);
+
   
   next()
 

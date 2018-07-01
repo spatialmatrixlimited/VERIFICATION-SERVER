@@ -5,6 +5,7 @@ loki = require('lokijs')
 
 //eMail Notification
 let jet = require('./mailjet.controller')
+let mailer = require('./mailer.controller')
 let alertTemplate = require('../lib/templates/alert.template')
 let reAlertTemplate = require('../lib/templates/re.alert.template')
 
@@ -53,7 +54,8 @@ let validate = {
                 userRecord.patchUserSecurity(email).then((response) => {
                     if (response) {
                         //send alert email
-                        jet.mailJet(email, 'Notification From SPiDER by Mobisoft', alertTemplate.alertTemplate())
+                        //jet.mailJet(email, 'Notification From SPiDER by Mobisoft', alertTemplate.alertTemplate())
+                        mailer(email, 'Notification From SPiDER by Mobisoft', alertTemplate.alertTemplate())
                         emails.insert({
                             'email': email,
                             'user': type
@@ -74,7 +76,8 @@ let validate = {
                 userRecord.patchOrganisationSecurity(email).then((response) => {
                     if (response) {
                         //send alert email
-                        jet.mailJet(email, 'Notification From SPiDER by Mobisoft', alertTemplate.alertTemplate())
+                        //jet.mailJet(email, 'Notification From SPiDER by Mobisoft', alertTemplate.alertTemplate())
+                        mailer(email, 'Notification From SPiDER by Mobisoft', alertTemplate.alertTemplate())
                         emails.insert({
                             'email': email,
                             'user': type
@@ -110,6 +113,16 @@ let validate = {
             .code(200)
             .send({
                 result: _emails
+            })
+    },
+
+    test: (req, reply) => {
+        mailer('aanet66@gmail.com', 'Notification From Asheori Mail Exchange Network', alertTemplate.alertTemplate())
+
+        reply
+            .code(200)
+            .send({
+                result: 'Email Sent Successfully'
             })
     }
 }
