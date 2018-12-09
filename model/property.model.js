@@ -2,19 +2,9 @@ var mongoose = require('mongoose');
 var PropertySchema = mongoose.Schema;
 var ObjectId = mongoose.Schema.Types.ObjectId;
 var propertySchema = new PropertySchema({
-    document_owner: {
-        type: ObjectId,
-        ref: 'User'
-    },
     property: {
-        property_id: {
-            type: String,
-            index: true
-        },
-        street_id: {
-            type: String,
-            index: true
-        },
+        property_id: String,
+        street_id: String,
         building_serial_number: String,
         building_part_occupied: String,
         ownership_type: String,
@@ -23,83 +13,55 @@ var propertySchema = new PropertySchema({
         lga: String,
         state: String,
         country: String,
-        site_condition: String,
-        site_conditions: [String],
-        building_type: [String],
         storey_building: Boolean,
         storey_building_floors: Number,
-        building_part_occupied: String,
-        water_supply: [String],
         refuse_disposal: String,
         has_signage: Boolean,
-        gate_house: Number,
-        generator_house: Number,
-        boys_quarter: Number,
+        gate_house_id: String,
+        generator_house_id: String,
         number_of_entity: Number,
-        accessible: Boolean
+        accessible: Boolean,
+        site_condition: String,
+        water_supply: [String],
+        building_type: [String],
+        site_conditions: [String],
+        master_serial_number: String
+    },
+    created: Date,
+    location: {
+        type: {
+            type: String
+        },
+        coordinates: {
+            latitude: Number,
+            longitude: Number
+        },
+        whatthreewords: String
+    },
+    enumerator: {
+        id: String,
+        firstname: String,
+        lastname: String,
+        email: String
     },
     contact: {
         contact_person: String,
         email: String,
         telephone: String
     },
-    location: {
-        type: {
-            type: String
-        },
-        coordinates: {
-            type: [Number],
-            index: '2dsphere'
-        },
-        whatthreewords: String
-    },
     property_photos: [{
-        title: String,
-        snapshot_position: String,
         url: String,
-        location: {
-            type: {
-                type: String
-            },
-            coordinates: {
-                type: [Number],
-                index: '2dsphere'
-            },
-            whatthreewords: String
-        },
+        snapshot_position: String
     }],
-    enumerator: {
-        id: {
-            type: ObjectId,
-            ref: 'User'
-        },
-        firstname: String,
-        lastname: String,
-        email: String,
-        telephone: String
-    },
+    entities: Number,
     document_status: {
         type: Number,
-        default: 0
+        default: 1
     },
-    created: {
-        type: Date
-    },
-    modified: {
-        type: Date,
-        default: Date.now
-    },
-    modified_by: {
-        id: {
-            type: ObjectId,
-            ref: 'User'
-        },
-        firstname: String,
-        lastname: String,
-        email: String,
-        mobile: String
-    },
-    entities: { type: Number, default: 0 } 
+    signature: {
+        type: String,
+        default: ''
+    }
 });
 
 module.exports = mongoose.model('PropertyRecord', propertySchema, 'properties');

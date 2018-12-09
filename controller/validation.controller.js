@@ -117,7 +117,7 @@ let validate = {
     },
 
     test: (req, reply) => {
-        mailer('aanet66@gmail.com', 'Notification From Asheori Mail Exchange Network', alertTemplate.alertTemplate())
+        mailer('kolagrey@asheori.com', 'Notification From Asheori Mail Exchange Network', alertTemplate.alertTemplate())
 
         reply
             .code(200)

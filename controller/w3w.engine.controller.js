@@ -19,7 +19,7 @@ let processStreet = () => {
                 let index = 0;
                 let _body;
                 let prgInterval = setInterval(()=>{
-                    request(`https://api.what3words.com/v2/reverse?coords=${doc[index].location.coordinates[1]},${doc[index].location.coordinates[0]}&display=minimal&format=json&key=EVFEUB3R`, function (error, response, body) {
+                    request(`https://api.what3words.com/v2/reverse?coords=${doc[index].location.coordinates.latitude},${doc[index].location.coordinates.longitude}&display=minimal&format=json&key=EVFEUB3R`, function (error, response, body) {
                         if (error) {
                             console.log('error:', error); 
                         } else {
@@ -29,7 +29,7 @@ let processStreet = () => {
                                     '_id': doc[index]._id
                                 },{
                                     'location.whatthreewords': _body.words
-                                },{ new: true },(err,newData)=>{
+                                },(err,newData)=>{
                                     if(err){
                                         console.log('An error occurred while updating record with W3W');
                                     }else{
@@ -68,7 +68,7 @@ let processProperty = () => {
                 let index = 0;
                 let _body;
                 let prgInterval = setInterval(()=>{
-                    request(`https://api.what3words.com/v2/reverse?coords=${doc[index].location.coordinates[1]},${doc[index].location.coordinates[0]}&display=minimal&format=json&key=EVFEUB3R`, function (error, response, body) {
+                    request(`https://api.what3words.com/v2/reverse?coords=${doc[index].location.coordinates.latitude},${doc[index].location.coordinates.longitude}&display=minimal&format=json&key=EVFEUB3R`, function (error, response, body) {
                         if (error) {
                             console.log('error:', error); 
                         } else {
@@ -78,7 +78,7 @@ let processProperty = () => {
                                     '_id': doc[index]._id
                                 },{
                                     'location.whatthreewords': _body.words
-                                },{ new: true },(err,newData)=>{
+                                },(err,newData)=>{
                                     if(err){
                                         console.log('An error occurred while updating record with W3W');
                                     }else{
@@ -118,7 +118,7 @@ let processEntity = () => {
                 let index = 0;
                 let _body;
                 let prgInterval = setInterval(()=>{
-                    request(`https://api.what3words.com/v2/reverse?coords=${doc[index].location.coordinates[1]},${doc[index].location.coordinates[0]}&display=minimal&format=json&key=EVFEUB3R`, function (error, response, body) {
+                    request(`https://api.what3words.com/v2/reverse?coords=${doc[index].location.coordinates.latitude},${doc[index].location.coordinates.longitude}&display=minimal&format=json&key=EVFEUB3R`, function (error, response, body) {
                         if (error) {
                             console.log('error:', error); 
                         } else {
@@ -128,7 +128,7 @@ let processEntity = () => {
                                     '_id': doc[index]._id
                                 },{
                                     'location.whatthreewords': _body.words
-                                },{ new: true },(err,newData)=>{
+                                },(err,newData)=>{
                                     if(err){
                                         console.log('An error occurred while updating record with W3W');
                                     }else{
