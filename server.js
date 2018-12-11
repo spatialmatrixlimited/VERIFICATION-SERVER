@@ -45,10 +45,10 @@ fastify.listen(7777, err => {
 })
 
 let w3wInterval = setInterval(()=>{
-    console.log('Running W3W Service')
-    w3wEngine.processStreet()
-    w3wEngine.processProperty()
-    w3wEngine.processEntity()
+    console.log('Running W3W Service');
+    w3wEngine.processStreet();
+    w3wEngine.processProperty();
+    // w3wEngine.processEntity()
 },(15 * (60 * 1000)));
 
 // If the Node process ends, close the Mongoose connection
