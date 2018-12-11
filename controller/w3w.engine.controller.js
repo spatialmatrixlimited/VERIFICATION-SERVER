@@ -51,7 +51,7 @@ let processStreet = () => {
                 console.log("No street data to process by W3W Engine");
             }
         }
-    });
+    }).limit(500);
 }
 
 let processProperty = () => {
@@ -100,7 +100,7 @@ let processProperty = () => {
                 console.log("No property data to process by W3W Engine");
             }
         }
-    });
+    }).limit(500);
 }
 
 
