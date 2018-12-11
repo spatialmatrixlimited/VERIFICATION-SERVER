@@ -24,6 +24,9 @@ fastify.register(require('./routes/api.routes'))
 
 mongoose.connection.on('open', function () {
     console.log('GIS Database is connected')
+    console.log('Running W3W Service')
+    w3wEngine.processStreet()
+    w3wEngine.processProperty()
 })
 
 // If the connection throws an error
